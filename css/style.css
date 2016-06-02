@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+/*
+ Author: Anne Gray | www.annegraydesign.com
+*/
+
+/* Color Scheme
+        Aqua - #2dc2d8
+		White - #ffffff
+		Charcoal - #1b1b1b
+*/
+
+/* Global */
+body {
+	margin: 0;
+	line-height: 1.3;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #1b1b1b;
+	background-color: #e9e9e9;
+	font-family: 'Lato', Helvetica, Arial, sans-serif;
+}
+header,nav,section,footer,article,div{ position:relative; display:block; }
+
+/* Float Clearing */
+header:after, nav:after, section:after, footer:after, div:after { content: ''; display: table; clear: both; }
+
+/* Custom Highlight Color */
+::-moz-selection { background-color:#2dc2d8; color:#ffffff; }
+::selection { background-color:#2dc2d8; color:#ffffff; }
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 { margin: 0; color: #4d4d4d; font-weight: normal; }
+h1 { font-size: 2.1em; text-align: center; margin: 10px auto; }
+h2 { font-size: 1.8em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1.1em; }
+h6 { font-size: 1em; font-weight: bold; }
+.section-header { padding: 10px 0; border-bottom: 1px solid #ffffff; color: #ffffff; font-size: 1.2em; font-weight: bold; text-transform: uppercase; text-align: center; letter-spacing: .1em; }
+
+/* Links */
+a, a:visited, a:active { color: #2dc2d8; text-decoration: none; -webkit-transition: .2s ease-out; -moz-transition: .2s ease-out; transition: .2s ease-out; }
+a:hover { opacity: .8; }
+
+.button, .button:active, .button:visited {
+	display: block;
+	max-width: 300px;
+	margin: 6px auto;
+	padding: 10px;
+	background-color: #4d4d4d;
+	color: #ffffff;
+	border: 1px solid #4d4d4d;
+	box-sizing: border-box;
+	font-size: 1.2em;
+	text-align: center;
+}
+.button:hover { opacity: 1; background-color: #ffffff; color: #4d4d4d; }
+
+/* Images */
+img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+a img { border: 0; }
+
+/* Misc */
+p { margin: 10px auto; }
+hr { width: 100%; border: 0; border-top: 1px solid #2dc2d8; clear: both; }
+.icon { font-family: FontAwesome; }
+.breadcrumb {
+	margin: 10px auto 20px;
+	padding: 0;
+	list-style-type: none;
+}
+.breadcrumb li { display: inline-block; }
+
+/* Header/Navigation */
+header { background-color: #e9e9e9 text-align: center; }
+.logo { display: block; margin: 10px auto; }
+.logo:hover { opacity: .9; -webkit-transition: .2s ease-out; -moz-transition: .2s ease-out; transition: .2s ease-out; }
+
+/* Layout */
+.inner { width: 90%; max-width: 1200px; margin: 0 auto; padding: 20px; box-sizing: border-box; }
+.content { margin: 1%; }
+.sidebar { margin: 1%; }
+.padded { padding: 5px; box-sizing: border-box; }
+
+/* * * * * * * * * * * *\
+      Custom Styles
+\* * * * * * * * * * * */
+
+/* Form */
+.edit-shop-hours {
+	width: 90%;
+	max-width: 600px;
+	margin: 20px auto;
+	background-color: #ffffff;
+	box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+}
+.edit-shop-hours h1 { padding-bottom: 15px; border-bottom: 1px solid #e9e9e9; }
+.edit-hours-form {
+	margin: 0 auto;
+}
+.day-input {
+	margin: 0 auto 10px;
+	padding: 10px 0;
+	border-bottom: 1px solid #e9e9e9;
+}
+.day-input-left { text-align: center; }
+.day-input-left h4 { margin-bottom: 5px; }
+.day-input-right {
+	-moz-transition: .3s ease-out;
+	-webkit-transition: .3s ease-out;
+	transition: .3s ease-out;
+}
+.day-input-right label { padding: 0 10px; }
+.time-select-add {
+	-moz-transition: .3s ease-out;
+	-webkit-transition: .3s ease-out;
+	transition: .3s ease-out;
+}
+.hours-toggle { margin-left: 10px; }
+.form-submit {
+	float: right;
+}
+
+/* Footer */
+footer { background-color: #B4BEC8; color: #ffffff; text-align: center; font-size: .9em; }
+footer h3 { color: #ffffff; font-weight: bold; font-size: 1.3em; }
+footer a, footer a:active, footer a:visited { color: #ffffff; }
+
+/* Media Queries */
+@media screen and (min-width: 700px) {
+	.day-input-left { float: left; width: 35%; }
+	.day-input-right { float: right; width: 65%; }
+}
+
+@media screen and (min-width: 1024px) {
+}
+
+/* Transitions */
+.disabled {
+	opacity: .4;
+}
+.hidden {
+	display: none;
+	opacity: 0;
+}
