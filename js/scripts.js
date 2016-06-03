@@ -1,6 +1,9 @@
+/* Configure days & formatting */
 function setDays() {
+    var addHours = '<a href="#" class="add-hours"><span class="icon">&#xf055;</span> Add additional hours</a>';
+    var removeHours = '<a href="#" class="remove-hours hidden"><span class="icon">&#xf056;</span> Remove additional hours</a>'
     var startHTML = '<div class="day-input"><div class="day-input-left"><h4>';
-    var endHTML = '</h4><label><input class="openCheck" type="checkbox" checked> Open</label></div><div class="day-input-right"><div class="time-select padded"><label>Open: <select class="time-list"></select></label><label>Close: <select class="time-list"></select></label></div><div class="time-select-add hidden padded"><label>Open: <select class="time-list"></select></label><label>Close: <select class="time-list"></select></label></div><div class="hours-toggle padded"><a href="#"><span class="icon">&#xf055;</span> Add additional hours</a></div></div></div>';
+    var endHTML = '</h4><label class="checkbox"><input class="openCheck" type="checkbox" checked> <span></span>Open</label></div><div class="day-input-right"><div class="time-select padded"><label>Open:</label><div class="dropdown"><select class="time-list"></select></div><label>Close:</label><div class="dropdown"><select class="time-list"></select></div></div><div class="time-select-add hidden padded"><label>Open:</label><div class="dropdown"><select class="time-list"></select></div><label>Close:</label><div class="dropdown"><select class="time-list"></select></div></div><div class="hours-toggle padded">' + addHours + removeHours + '</div></div></div>';
     var html = '';
     var daysArray = [
         'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
@@ -11,6 +14,7 @@ function setDays() {
     return html;
 }
 
+/* Configure the time values to include in dropdown */
 function setTimeValues() {
     var html = '<option value=""></option>';
     var timeArray = [
@@ -26,7 +30,7 @@ $(document).ready(function() {
     
     /* Generate list of days */
     var daysHTML = setDays();
-    var submitHTML = '<input type="submit" class="form-submit" value="Save">';
+    var submitHTML = '<input type="submit" class="form-submit" id="form-submit" value="Save Changes">';
     $('.edit-hours-form').html(daysHTML + submitHTML);
     
     /* Get HTML for time dropdowns */
@@ -37,14 +41,23 @@ $(document).ready(function() {
         $(this).html(timeSelect);
     });
 
-    $('.hours-toggle').on('click', function(e) {
+    /* Show/hide additional hours option */
+    $('.hours-toggle a').on('click', function(e) {
         e.preventDefault();
-        $(this).parent().find('.time-select-add').toggleClass('hidden');
+        var toggle = $(this).parent();
+        $(toggle).parent().find('.time-select-add').toggleClass('hidden');
+        $(toggle).find('.add-hours').toggleClass('hidden');
+        $(toggle).find('.remove-hours').toggleClass('hidden');
+        
     });
     
+    /* Disable editing options if closed on associated day */
     $('.openCheck').on('click', function() {
         $(this).parent().parent().parent().find('.day-input-right').toggleClass('disabled');
     });
     
     /* Client-side time validation */
+    $('#form-submit').on('click', function(e) {
+        e.preventDefault();
+    });;
 });
